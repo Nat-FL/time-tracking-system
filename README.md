@@ -1,7 +1,32 @@
-# time-tracking-system
-Employee time tracking system 
-To start:
-run 'npm install' on api and client foldes to install all necessary node_modules
-navigate to the client folder and run 'npm run build'
-navigate to the api folder then run 'node server.js'
-This currently only runs locally on port 5000.
+# Time-Tracking System
+
+This is an Employee time tracking system 
+
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/ajferrell/time-tracking-system.git
+   ```
+2. From the api directory, install NPM packages
+   ```sh
+   npm install
+   ```
+3. From the client directory, install NPM packages
+   ```sh
+   npm install
+   ```
+4. From the client directory, create a production build
+   ```sh
+   npm run build
+   ```
+4. Start the server from the api directory:
+   ```sh
+   node server.js
+   ```
+## Notices
+- This currently only runs locally on port 5000.
