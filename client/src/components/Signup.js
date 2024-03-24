@@ -2,44 +2,41 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+
+
+const Signup = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordC, setPasswordC] = useState('');
+    const [client, setClient] = useState('');
     const [error, setError] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('/login', { username, password });
+            const response = await axios.post('/createAdmin', { username, password, passwordC, client });
             console.log(response.data); 
-            navigate("/home");
+            navigate("/signupcomplete");
 
         } catch (error) {
-            setError('Invalid username or password');
+            setError('Invalid Input, check for passwords match\n or Client name \n (contact current administrator if client already exists)');
         }
     };
 
-
-    const handleSignup = async () => {
-        navigate("/signup");
-    }
-
     return (
         <div>
-            <h2>Login</h2>
+            <h2>Create an Account</h2>
             <form onSubmit={handleSubmit}>
+                <input type="text" placeholder="Client Name" value={client} onChange={(e) => setClient(e.target.value)} required />
                 <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} required />
                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                <button type="submit">Login</button>
+                <input type="password" placeholder="Comfirm Password" value={passwordC} onChange={(e) => setPasswordC(e.target.value)} required />
+                <button type="submit">Create Account</button>
             </form>
             {error && <p>{error}</p>}
-            <form onSubmit={handleSignup}>
-                <h4>Administrator Create Account</h4>
-                <button type="submit">Sign up</button>
-            </form>
         </div>
     );
 };
 
-export default Login;
+export default Signup;
