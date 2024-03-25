@@ -28,6 +28,14 @@ app.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 })
 
+app.get('/signup', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+})
+
+app.get('/signupcomplete', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+})
+
 app.use(bodyParser.json());
 
 // Login route
@@ -47,6 +55,26 @@ app.post('/login', async (req, res) => {
         return res.status(500).json({ message: 'Internal server error' });
     }
 });
+
+//admin account creation route
+//TODO: add database functionality once database is created
+app.post('/createAdmin', async (req, res) => {
+    const {username, password, passwordC, client} = req.body;
+    //this function should check the database to see if client exists among existing users
+    //TODO: account should only be created if client is not already existing in database
+    //for now lets just assume that the client is not found
+    clientInDatabase = false;
+    if(clientInDatabase) {
+        return res.status(401).json({ message: 'Client already exists' });
+    }
+    //make sure password and confirmation match
+    if(password != passwordC) {
+        return res.status(401).json({message: 'Password and confirmation do not match!'});
+    }
+
+    //TODO: actually add account to the database
+    return res.status(200).json({message: 'admin created sucessfuly'});
+})
 
 // Starts server
 const PORT = process.env.PORT || 5000;
