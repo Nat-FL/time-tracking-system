@@ -12,13 +12,15 @@ function App() {
       <div className="App">
         <header className="App-header">
           <h1>Employee Time-Tracker</h1>
+        </header>
+        <main className='App-main'>
           <Routes>
             <Route path="/home" element={<Home />} />
             <Route path="/" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/signupcomplete" element={<Signupcomplete />} />
           </Routes>
-        </header>
+        </main>
       </div>
     </Router>
   );
