@@ -1,11 +1,18 @@
 const express = require('express');
+const cors = require("cors")
+const morgan = require("morgan")
 const path = require('path');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
-
+const userRoutes = require("./routes/users");
 const app = express();
 
+app.use(cors()); //enables CORS middleware to handle cross-origin request
+app.use(morgan("dev")); //use morgan middleware w/ "dev"
 app.use(express.json());
+
+//routing middleware
+app.use("/api/users", userRoutes);
 
 // Sample user data
 const users = [
@@ -77,5 +84,6 @@ app.post('/createAdmin', async (req, res) => {
 })
 
 // Starts server
-const PORT = process.env.PORT || 5000;
+//backend server initially set to 5000, want to try 3000 
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
