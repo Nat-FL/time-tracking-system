@@ -36,6 +36,18 @@ app.get('/signupcomplete', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 })
 
+app.get('/profile', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+})
+
+app.get('/passwordchange', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+})
+
+app.get('/passwordconfirm', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+})
+
 app.use(bodyParser.json());
 
 // Login route
@@ -74,6 +86,19 @@ app.post('/createAdmin', async (req, res) => {
 
     //TODO: actually add account to the database
     return res.status(200).json({message: 'admin created sucessfuly'});
+})
+
+app.post('/changepassword', async (req, res) => {
+    const {passwordOld, password, passwordC} = req.body;
+    //TODO: make sure old password matches
+    if(password != passwordC){
+        return res.status(401).json({ message: 'password confirm does not match' });
+    }
+    if(password == passwordOld){
+        return res.status(401).json({ message: 'Password is same as old'});
+    }
+    //TODO: change password in database
+    return res.status(200).json({message: 'password changed sucessfuly'});
 })
 
 // Starts server
