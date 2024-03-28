@@ -12,6 +12,8 @@ import Accountdeleteconfirm from './components/Accountdeleteconfirm';
 import Accountdeleted from './components/Accountdeleted';
 import Newaccount from './components/Newaccount';
 import Accountcreated from './components/Accountcreated';
+import Projects from './components/Projects';
+import Data from './components/Data';
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
             <Route path="/accountdeleted" element={<Accountdeleted />} />
             <Route path="/newaccount" element={<Newaccount />} />
             <Route path="/accountcreated" element={<Accountcreated />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/data" element={<Data />} />
 
           </Routes>
         </main>

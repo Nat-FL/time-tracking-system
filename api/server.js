@@ -73,6 +73,14 @@ app.get('/accountcreated', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 })
 
+app.get('/data', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+})
+
+app.get('/projects', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+})
+
 app.use(bodyParser.json());
 
 // Login route
