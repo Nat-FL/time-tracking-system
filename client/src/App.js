@@ -7,7 +7,11 @@ import Signup from './components/Signup';
 import Signupcomplete from './components/Signupcomplete';
 import Profile from './components/Profile';
 import Passwordchange from './components/Passwordchange';
-import Passwordconfirm from './components/Passwordconfirm'
+import Passwordconfirm from './components/Passwordconfirm';
+import Accountdeleteconfirm from './components/Accountdeleteconfirm';
+import Accountdeleted from './components/Accountdeleted';
+import Newaccount from './components/Newaccount';
+import Accountcreated from './components/Accountcreated';
 
 function App() {
   return (
@@ -25,6 +29,11 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/passwordchange" element={<Passwordchange />} />
             <Route path="/passwordconfirm" element={<Passwordconfirm />} />
+            <Route path="/accountdeleteconfirm" element={<Accountdeleteconfirm />} />
+            <Route path="/accountdeleted" element={<Accountdeleted />} />
+            <Route path="/newaccount" element={<Newaccount />} />
+            <Route path="/accountcreated" element={<Accountcreated />} />
+
           </Routes>
         </main>
       </div>
