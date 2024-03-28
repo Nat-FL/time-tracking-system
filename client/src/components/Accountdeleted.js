@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 
-const Signupcomplete = () => {
+const Accountdeleted = () => {
     const navigate = useNavigate();
 
 
@@ -11,7 +11,7 @@ const Signupcomplete = () => {
 
     return (
         <div>
-            <h2>Account Created sucessfuly</h2>
+            <h2>Account Deleted sucessfuly</h2>
             <form onSubmit={loginReturn}>
                 <button type="submit">return to login</button>
             </form>
@@ -19,4 +19,4 @@ const Signupcomplete = () => {
     );
 };
 
-export default Signupcomplete;
+export default Accountdeleted;
