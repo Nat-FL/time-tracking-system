@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router(); 
 const db = require("../config/db");
 
-//Get all users
 router.get("/",(req,res)=>{
     db.query("SELECT * FROM users", (err,result)=>{
         if(err){
