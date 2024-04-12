@@ -28,5 +28,20 @@ To get a local copy up and running follow these simple steps.
    ```sh
    node server.js
    ```
+### Database Connection
+1. cd to api directory
+2. install necessary depedencies for backend
+   ```sh
+   npm install express cors morgan dotevn nodemon pg
+   ```
+3. Start the server up
+   ```sh
+   run node server.js
+   ```
+4. After running server, should see message
+   ```sh
+   Server running on port 3000
+   Table created successfully!
+   ```
 ## Notices
-- This currently only runs locally on port 5000.
+- This currently only runs locally on port 3000.
