@@ -14,6 +14,7 @@ import Newaccount from './components/Newaccount';
 import Accountcreated from './components/Accountcreated';
 import Projects from './components/Projects';
 import Data from './components/Data';
+import LandingPage from './components/LandingPage';
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
         <main className='App-main'>
           <Routes>
             <Route path="/home" element={<Home />} />
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/signupcomplete" element={<Signupcomplete />} />
             <Route path="/profile" element={<Profile />} />

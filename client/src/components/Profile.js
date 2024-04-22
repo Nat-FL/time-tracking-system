@@ -1,18 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Buttons.css';
 
 function Profile() {
   return (
-    <div style={{ backgroundColor: 'white', color: 'black', padding: "80px 60px", minHeight: '100vh-100px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+    <div style={{ backgroundColor: 'white', color: 'black', padding: "80px 60px", minHeight: '100vh-100px', width: '600px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
         <main>
             <h2>Profile</h2>
-            <p>options</p>
+            <p>Options</p>
             <section>
-                <Link to='/passwordchange'>Change Password</Link>
+                <Link to='/passwordchange'>
+                <button class="button-28" role="button" style={{width: '250px'}}>Change Password</button>
+                </Link>
                 <pre></pre>
-                <Link to='/accountdeleteconfirm'>Delete Account</Link>
-                <p>admins only</p>
-                <Link to='/newaccount'>Create an account</Link>
+                <Link to='/accountdeleteconfirm'>
+                <button class="button-28" role="button" style={{width: '250px'}}>Delete Account</button>
+                </Link>
+                <p>Admins only*</p>
+                <Link to='/newaccount'>
+                <button class="button-28" role="button" style={{width: '250px'}}>Create an Account</button>
+                </Link>
             </section>
         </main>
     </div>
