@@ -21,11 +21,11 @@ const Accountdeleteconfirm = () => {
 
     return (
         <div>
-            <h2>Are you sure?</h2>
+            <h2>Are You Sure?</h2>
            
             <form onSubmit={deleteAcount}>
-                <h5>deleting your account will erase ALL data!</h5>
-                <button type="submit">Yes, Delete account</button>
+                <h5>Deleting your account will erase ALL data!</h5>
+                <button type="submit">Yes, Delete Account</button>
             </form>
         </div>
     );

@@ -11,9 +11,9 @@ const Signupcomplete = () => {
 
     return (
         <div>
-            <h2>Account Created sucessfuly</h2>
+            <h2>Account Created Sucessfuly</h2>
             <form onSubmit={loginReturn}>
-                <button type="submit">return to login</button>
+                <button type="submit">Return To Login</button>
             </form>
         </div>
     );

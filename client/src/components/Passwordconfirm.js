@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Passwordconfirm = () => {
     return (
         <div>
-            <h2>Password changed sucessfuly</h2>
+            <h2>Password Changed Sucessfuly</h2>
             <Link to='/home'>Return Home</Link>
         </div>
     );
