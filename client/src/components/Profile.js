@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Buttons.css';
 
 function Profile() {
-  isAdmin = true;
+  var isAdmin = true;
   return (
     <div style={{ backgroundColor: 'white', color: 'black', padding: "80px 60px", minHeight: '100vh-100px', width: '600px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
         <main>
