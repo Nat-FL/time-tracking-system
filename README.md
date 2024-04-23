@@ -44,3 +44,6 @@ To get a local copy up and running follow these simple steps.
    ```
 ## Notices
 - This currently only runs locally on port 3000.
+- To have access to psql commands make sure to add PostgreSQL (bin and lib) to your local computer Environment Variables
+- To drop and recreate database run the command psql -f tracking -U postgres
+
