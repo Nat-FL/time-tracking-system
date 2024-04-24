@@ -35,6 +35,15 @@ class User{
         const user = result.rows[0]; 
         return user; 
     }
+
+    //retrieve user based on username
+    static async getByUsername(username) {
+        const result = await db.query('SELECT * FROM users WHERE name = $1', [
+          username,
+        ]);
+        return result;
+      }
+
 }
 
 module.exports= User

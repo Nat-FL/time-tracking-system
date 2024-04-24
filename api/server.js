@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const userRoutes = require("./routes/users");
 const app = express();
+const User = require("./models/user");
 
 app.use(cors()); //enables CORS middleware to handle cross-origin request
 app.use(morgan("dev")); //use morgan middleware w/ "dev"
@@ -56,11 +57,13 @@ app.use(bodyParser.json());
 // Login route
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
-    const user = users.find(user => user.username === username);
-    if (!user) {
-        return res.status(401).json({ message: 'Invalid username or password' });
-    }
+    
     try {
+        const result = await User.getByUsername(username);
+        const user = result.rows[0];
+        if (!user) {
+            return res.status(401).json({ message: 'Invalid username or password' });
+        }
         if (await bcrypt.compare(password, user.password)) {
             return res.status(200).json({ message: 'Login successful' });
         } else {
@@ -72,23 +75,36 @@ app.post('/login', async (req, res) => {
 });
 
 //admin account creation route
-//TODO: add database functionality once database is created
 app.post('/createAdmin', async (req, res) => {
     const {username, password, passwordC, client} = req.body;
-    //this function should check the database to see if client exists among existing users
-    //TODO: account should only be created if client is not already existing in database
-    //for now lets just assume that the client is not found
-    clientInDatabase = false;
-    if(clientInDatabase) {
-        return res.status(401).json({ message: 'Client already exists' });
-    }
-    //make sure password and confirmation match
-    if(password != passwordC) {
-        return res.status(401).json({message: 'Password and confirmation do not match!'});
-    }
-
-    //TODO: actually add account to the database
-    return res.status(200).json({message: 'admin created sucessfuly'});
+    
+    try {
+        // Check if the client already exists
+        const result = await User.getByUsername(username);
+        const existingUser = result.rows[0];
+        if (existingUser) {
+          return res.status(401).json({ message: 'Client already exists' });
+        }
+    
+        // Make sure password and confirmation match
+        if (password !== passwordC) {
+          return res.status(401).json({ message: 'Password and confirmation do not match!' });
+        }
+    
+        // Create admin account
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const newUser = await User.register({
+          name: username,
+          password: hashedPassword,
+          status: 'admin',
+          associated_clients: client,
+        });
+    
+        return res.status(200).json({ message: 'Admin created successfully', user: newUser });
+      } catch (error) {
+        console.error('Error creating admin:', error);
+        return res.status(500).json({ message: 'Internal server error' });
+      }
 });
 
 app.post('/changepassword', async (req, res) => {
