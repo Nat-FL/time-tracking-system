@@ -15,6 +15,7 @@ import Accountcreated from './components/Accountcreated';
 import Projects from './components/Projects';
 import Data from './components/Data';
 import LandingPage from './components/LandingPage';
+import Newproject from './components/Newproject';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <Route path="/accountcreated" element={<Accountcreated />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/data" element={<Data />} />
+            <Route path="/newproject" element={<Newproject />} />
 
           </Routes>
         </main>

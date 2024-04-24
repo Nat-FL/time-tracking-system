@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Buttons.css';
 
 function Profile() {
+  var isAdmin = true;
   return (
     <div style={{ backgroundColor: 'white', color: 'black', padding: "80px 60px", minHeight: '100vh-100px', width: '600px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
         <main>
@@ -16,10 +17,10 @@ function Profile() {
                 <Link to='/accountdeleteconfirm'>
                 <button class="button-28" role="button" style={{width: '250px'}}>Delete Account</button>
                 </Link>
-                <p>Admins only*</p>
-                <Link to='/newaccount'>
+                {isAdmin && <p>Admins only</p>}
+                {isAdmin && <Link to='/newaccount'>
                 <button class="button-28" role="button" style={{width: '250px'}}>Create an Account</button>
-                </Link>
+                </Link>}
             </section>
         </main>
     </div>

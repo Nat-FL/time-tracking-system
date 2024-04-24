@@ -11,9 +11,9 @@ const Accountdeleted = () => {
 
     return (
         <div>
-            <h2>Account Deleted sucessfuly</h2>
+            <h2>Account Deleted Sucessfuly</h2>
             <form onSubmit={loginReturn}>
-                <button type="submit">return to login</button>
+                <button type="submit">Return To Login</button>
             </form>
         </div>
     );

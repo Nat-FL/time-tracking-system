@@ -11,9 +11,9 @@ const Accountcreated = () => {
 
     return (
         <div>
-            <h2>Account Created sucessfuly</h2>
+            <h2>Account Created Sucessfuly</h2>
             <form onSubmit={loginReturn}>
-                <button type="submit">return to homepage</button>
+                <button type="submit">Return To Homepage</button>
             </form>
         </div>
     );

@@ -33,7 +33,7 @@ const Signup = () => {
                 </div>
                 <div style={{ marginBottom: '16px' }}>                <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 </div>
-                <div style={{ marginBottom: '16px' }}>                <input type="password" placeholder="Comfirm Password" value={passwordC} onChange={(e) => setPasswordC(e.target.value)} required />
+                <div style={{ marginBottom: '16px' }}>                <input type="password" placeholder="Confirm Password" value={passwordC} onChange={(e) => setPasswordC(e.target.value)} required />
                 </div>
                 <div style={{ marginBottom: '16px' }}>                <button type="submit">Create Account</button>
                 </div>

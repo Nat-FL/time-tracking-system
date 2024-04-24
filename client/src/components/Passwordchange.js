@@ -30,9 +30,9 @@ const Passwordchange = () => {
                 </div>
                 <div style={{ marginBottom: '16px' }}>                <input type="password" placeholder="New Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 </div>
-                <div style={{ marginBottom: '16px' }}>                <input type="password" placeholder="Comfirm New Password" value={passwordC} onChange={(e) => setPasswordC(e.target.value)} required />
+                <div style={{ marginBottom: '16px' }}>                <input type="password" placeholder="Confirm New Password" value={passwordC} onChange={(e) => setPasswordC(e.target.value)} required />
                 </div>
-                <div style={{ marginBottom: '16px' }}>                <button type="submit">Change password</button>
+                <div style={{ marginBottom: '16px' }}>                <button type="submit">Change Password</button>
                 </div>
             </form>
             {error && <p>{error}</p>}
