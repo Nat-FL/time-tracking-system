@@ -1,5 +1,4 @@
 const db = require("../config/db")
-const bcrypt = require("bcrypt");
 
 class User{
     //convert user from database into a user object that can be manipulated and viewed publically
@@ -43,6 +42,47 @@ class User{
         ]);
         return result;
       }
+
+    //updates user password
+    static async updatePassword(userId, newPassword) {
+        try {
+            await db.query(
+                `UPDATE users
+                 SET password = $1
+                 WHERE user_id = $2`,
+                [newPassword, userId]
+            );
+        } catch (error) {
+            throw new Error(`Error updating password: ${error}`);
+        }
+    }
+
+    //removes user from database
+    static async deleteUser(userId) {
+        try {
+            await db.query(
+                `DELETE FROM users
+                 WHERE user_id = $1`,
+                [userId]
+            );
+        } catch (error) {
+            throw new Error(`Error deleting user: ${error}`);
+        }
+    }
+
+    //gets user from a given user id
+    static async getByUserId(userId) {
+        try {
+            const result = await db.query(
+                `SELECT * FROM users
+                 WHERE user_id = $1`,
+                [userId]
+            );
+            return result;
+        } catch (error) {
+            throw new Error(`Error getting user by id: ${error}`);
+        }
+    }
 
 }
 

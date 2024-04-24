@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 const Signupcomplete = () => {
     const navigate = useNavigate();
 
-
     const loginReturn = async () => {
         navigate("/");
     }

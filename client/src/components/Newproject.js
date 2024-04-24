@@ -36,7 +36,7 @@ const Newproject = () => {
                 </div>
                 
                 <div style={{ marginBottom: '16px' }}>
-                <label>Users:</label>
+                <label>Users: </label>
                 <input type="text" placeholder="employees" value={Employee} onChange={(e) => setEmployee(e.target.value)} required />
                 </div>
 

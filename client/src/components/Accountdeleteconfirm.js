@@ -6,10 +6,11 @@ const Accountdeleteconfirm = () => {
     const navigate = useNavigate();
 
 
-    const deleteAcount = async (e) => {
+    const deleteAccount = async (e) => {
+        e.preventDefault();
         try {
-            //const response = await axios.post('/deleteaccount', {testval: 'Test'});
-            //console.log(response.data); 
+            const response = await axios.post('/deleteaccount');
+            console.log(response.data); 
             navigate("/accountdeleted");
 
         } 
@@ -23,7 +24,7 @@ const Accountdeleteconfirm = () => {
         <div>
             <h2>Are You Sure?</h2>
            
-            <form onSubmit={deleteAcount}>
+            <form onSubmit={deleteAccount}>
                 <h5>Deleting your account will erase ALL data!</h5>
                 <button type="submit">Yes, Delete Account</button>
             </form>

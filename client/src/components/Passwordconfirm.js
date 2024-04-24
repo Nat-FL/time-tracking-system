@@ -1,11 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const Passwordconfirm = () => {
+    const navigate = useNavigate();
+
+
+    const homeReturn = async () => {
+        navigate("/home");
+    }
     return (
         <div>
-            <h2>Password Changed Sucessfuly</h2>
-            <Link to='/home'>Return Home</Link>
+            <h2>Password Changed Successfuly</h2>
+            <form onSubmit={homeReturn}>
+                <button type="submit">Return To Home</button>
+            </form>
         </div>
     );
 };
