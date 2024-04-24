@@ -24,7 +24,7 @@ To get a local copy up and running follow these simple steps.
    ```sh
    npm run build
    ```
-4. Start the server from the api directory:
+5. Start the server from the api directory:
    ```sh
    node server.js
    ```
@@ -53,7 +53,7 @@ To get a local copy up and running follow these simple steps.
    ```sh
    node server.js
    ```
-5. After running server, should see message
+6. After running server, should see message
    ```sh
    Server running on port 3000
    Table created successfully!
