@@ -15,7 +15,9 @@ const Newproject = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('/createProject', { name, start, end, Employee });
+            //createProject
+            //, Employee 
+            const response = await axios.post('http://localhost:3000/projects/create', { name, start, end});
             console.log(response.data); 
             navigate("/projects");
 

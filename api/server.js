@@ -5,15 +5,17 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const userRoutes = require("./routes/users");
+const projectRoutes = require("./routes/projectRoute")
 const app = express();
 const User = require("./models/user");
-
+const Projects = require("./models/projects");
 app.use(cors()); //enables CORS middleware to handle cross-origin request
 app.use(morgan("dev")); //use morgan middleware w/ "dev"
 app.use(express.json());
 
 //routing middleware
 app.use("/api/users", userRoutes);
+app.use("/projects", projectRoutes);
 
 // Sample user data
 const users = [

@@ -8,8 +8,9 @@ CREATE TABLE users(
 
 CREATE TABLE projects(
     project_id     SERIAL PRIMARY KEY, 
-    project_name   TEXT NOT NULL, 
-    user_ID    INTEGER NOT NULL 
+    project_name   TEXT,
+    start_time     TIME, 
+    end_time       TIME
 ); 
 
 CREATE TABLE projectIsON(

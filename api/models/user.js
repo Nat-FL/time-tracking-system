@@ -17,7 +17,6 @@ class User{
     //register function 
     static async register(creds){
 
-       console.log("I made it here! I'm here! Before the result!")
       // const hashedPassword =  await bcrypt.hash(creds.password,10)
 
        //adding user information into the database
